@@ -28,11 +28,7 @@ export async function lookupWord(term) {
   const key = (term || '').trim().toLowerCase();
   if (!key) return null;
   if (LOOKUP_DB[key]) return LOOKUP_DB[key];
-  // Try Merriam-Webster Collegiate Dictionary API (requires VITE_MW_KEY in env)
-  // If no key is present, return null so callers can fallback elsewhere.
-  const MW_KEY = import.meta.env.VITE_MW_KEY || '';
-  if (!MW_KEY) return null;
-  const url = `https://www.dictionaryapi.com/api/v3/references/collegiate/json/${encodeURIComponent(key)}?key=${MW_KEY}`;
+  const url = `/api/lookup?term=${encodeURIComponent(key)}`;
   try {
     const res = await fetch(url);
     if (!res.ok) return null;
