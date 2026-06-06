@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Redirecting…</title>
+    <script>
+      const base = '/spells';
+      const pathname = window.location.pathname.replace(base, '') || '/';
+      const href = base + '/index.html?path=' + encodeURIComponent(pathname + window.location.search + window.location.hash);
+      window.location.replace(href);
+    </script>
+  </head>
+  <body>
+    <p>Redirecting to the app...</p>
+  </body>
+</html>

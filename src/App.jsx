@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { HashRouter, Routes, Route, Navigate, useNavigate, useParams } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate, useNavigate, useParams } from 'react-router-dom'
 import { Header, IslandBar } from './components/dict-shell'
 import Landing from './components/dict-home'
 import { Search, Collection, Detail } from './components/dict-screens'
@@ -106,7 +106,7 @@ export default function App() {
   const dark = variant === 'uk';
 
   return (
-    <HashRouter>
+    <BrowserRouter>
       <div style={{ width: '100%', boxSizing: 'border-box' }}>
         <div className={'dict'} data-theme={dark ? 'dark' : 'light'}>
           <div className="grain" aria-hidden="true"></div>
@@ -125,6 +125,6 @@ export default function App() {
           </main>
         </div>
       </div>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
