@@ -43,8 +43,3 @@ This project is configured for GitHub Pages deployment under the `spells` reposi
 2. GitHub Actions will build and deploy automatically.
 3. Enable Pages in repository settings if needed, with the Pages source set to the "GitHub Pages" deployment output.
 
-## Notes
-
-- Keep `node_modules/` and `dist/` out of git.
-- `package-lock.json` should stay committed if you want deterministic installs.
-
