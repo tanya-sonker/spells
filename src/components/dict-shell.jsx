@@ -80,7 +80,7 @@ export function Header({ variant, setVariant }) {
   return (
     <header className="appbar">
       <div className="wordmark">
-        <img src="/app_logo.png" className="wm-logo" alt="Spells" />
+        <img src={`${import.meta.env.BASE_URL}app_logo.png`} className="wm-logo" alt="Spells" />
       </div>
       <div className="flags" role="group" aria-label="English variant">
         {flag('us', FlagUS, 'American English')}
