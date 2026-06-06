@@ -106,7 +106,7 @@ export default function App() {
   const dark = variant === 'uk';
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <div style={{ width: '100%', boxSizing: 'border-box' }}>
         <div className={'dict'} data-theme={dark ? 'dark' : 'light'}>
           <div className="grain" aria-hidden="true"></div>
