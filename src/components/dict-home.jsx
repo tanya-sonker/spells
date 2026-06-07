@@ -3,10 +3,6 @@ import React from 'react'
 export function Landing({ count }) {
   return (
     <section className="screen intro">
-      <div className="intro-mark">
-        <img className="intro-glyph" src={`${import.meta.env.BASE_URL}app_logo.png`} alt="Spells" />
-      </div>
-
       <h1 className="intro-title">Spells</h1>
       <p className="intro-tag">A reader&rsquo;s word collection</p>
 
