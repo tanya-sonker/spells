@@ -160,6 +160,7 @@ export function Detail({ word, variant, onBack }) {
 
 export function Search({ words, variant, onAdd, onOpen, onAdded }) {
   const [term, setTerm] = useState('');
+  const [query, setQuery] = useState('');
   const [chosen, setChosen] = useState(0);
   const [excerpt, setExcerpt] = useState('');
   const [justAdded, setJustAdded] = useState(false);
@@ -170,7 +171,7 @@ export function Search({ words, variant, onAdd, onOpen, onAdded }) {
   const inLibrary = entry ? words.some(w => w.id === entry.id) : false;
 
   useEffect(() => {
-    const key = term.trim().toLowerCase();
+    const key = query.trim().toLowerCase();
     setChosen(0); setExcerpt(''); setJustAdded(false);
     if (!key) { setStatus('idle'); setEntry(null); return; }
     const myId = ++reqId.current;
@@ -180,9 +181,14 @@ export function Search({ words, variant, onAdd, onOpen, onAdded }) {
       const res = await lookupWord(key);
       if (myId !== reqId.current) return;
       if (res) { setEntry(res); setStatus('found'); } else { setStatus('notfound'); }
-    }, 500);
+    }, 300);
     return () => clearTimeout(t);
-  }, [term]);
+  }, [query]);
+
+  function handleSubmit(e) {
+    if (e) e.preventDefault();
+    setQuery(term.trim());
+  }
 
   const suggestions = Object.values(window.LOOKUP_DB || {})
     .filter(w => !words.some(x => x.id === w.id)).slice(0, 6);
@@ -203,8 +209,17 @@ export function Search({ words, variant, onAdd, onOpen, onAdded }) {
 
       <div className="searchfield">
         <IcoSearch size={20} />
-        <input value={term} onChange={(e) => setTerm(e.target.value)} placeholder="Type a word …" autoComplete="off" autoCapitalize="none" autoCorrect="off" spellCheck="false" />
-        {term && <button className="clearx" onClick={() => setTerm('')}>&times;</button>}
+        <input
+          value={term}
+          onChange={(e) => setTerm(e.target.value)}
+          onKeyDown={(e) => { if (e.key === 'Enter') handleSubmit(e); }}
+          placeholder="Type a word and press Enter…"
+          autoComplete="off"
+          autoCapitalize="none"
+          autoCorrect="off"
+          spellCheck="false"
+        />
+        {term && <button className="clearx" onClick={() => { setTerm(''); setQuery(''); }}>&times;</button>}
       </div>
 
       {/* {status === 'idle' && (
