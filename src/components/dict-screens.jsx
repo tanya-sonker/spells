@@ -105,7 +105,7 @@ export function Collection({ words, variant, onOpen, onDelete, layout, setLayout
                   <PosLabel>{w.pos}</PosLabel>
                 </div>
                 <p className="wc-gloss">{w.senses[0].gloss}</p>
-                <p className="wc-ex">“{w.senses[0].example}”</p>
+                <p className="wc-ex">"{w.context}"</p>
               </button>
               <div className="card-actions">
                 <SpeakBtn word={w[variant]} variant={variant} />
@@ -137,21 +137,13 @@ export function Detail({ word, variant, onBack }) {
         </div>
       </div>
       <div className="rule-full"></div>
-      <ol className="senses">
-        {word.senses.map((s, i) => (
-          <li key={i} className="sense">
-            <span className="sense-num">{i + 1}</span>
-            <div className="sense-body">
-              <p className="sense-gloss">{s.gloss}</p>
-              <p className="sense-ex">{s.example}</p>
-            </div>
-          </li>
-        ))}
-      </ol>
+      <div className="sense-selected">
+        <p className="sense-gloss">{word.senses[0].gloss}</p>
+      </div>
       {word.context && (
         <div className="context-note">
           <p className="cn-label">From your reading</p>
-          <p className="cn-text">“{word.context}”</p>
+          <p className="cn-text">"{word.context}"</p>
         </div>
       )}
     </section>

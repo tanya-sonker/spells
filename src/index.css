@@ -213,10 +213,12 @@ body {
 .pron { display: flex; align-items: center; justify-content: center; gap: 13px; margin-top: 16px; flex-wrap: wrap; }
 .ipa { font-style: italic; color: var(--ink-soft); font-size: 16px; letter-spacing: .02em; }
 .rule-full { height: 1px; background: var(--rule); margin: 26px 0 4px; }
+.sense-selected { padding: 24px 0; }
+.sense-selected .sense-gloss { margin: 0; font-size: 18px; line-height: 1.5; color: var(--ink); }
 .senses { list-style: none; margin: 0; padding: 0; }
 .sense { display: flex; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--rule); }
 .sense-num { font-style: italic; font-size: 19px; color: var(--accent); width: 16px; flex-shrink: 0; padding-top: 3px; }
-.sense-gloss { margin: 0; font-size: 18px; line-height: 1.5; color: var(--ink); }
+.sense-gloss { margin: 0; padding: 0 12px; font-size: 18px; line-height: 1.5; color: var(--ink); }
 .sense-ex { margin: 9px 0 0; font-style: italic; font-size: 16px; line-height: 1.45; color: var(--ink-soft); }
 .context-note { margin-top: 30px; text-align: center; }
 .cn-label { margin: 0; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--ink-faint); font-weight: 600; }
