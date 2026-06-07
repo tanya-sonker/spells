@@ -90,7 +90,7 @@ export function IslandBar() {
   const items = [
     { id: 'home', label: 'Home', Ico: IcoHome, to: '/' },
     { id: 'search', label: 'Search', Ico: IcoSearch, to: '/search' },
-    { id: 'library', label: 'Library', Ico: IcoLibrary, to: '/library/index' },
+    { id: 'library', label: 'Library', Ico: IcoLibrary, to: '/library' },
   ];
   return (
     <nav className="island" aria-label="Primary">
