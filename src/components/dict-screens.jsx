@@ -213,7 +213,7 @@ export function Search({ words, variant, onAdd, onOpen, onAdded }) {
           value={term}
           onChange={(e) => setTerm(e.target.value)}
           onKeyDown={(e) => { if (e.key === 'Enter') handleSubmit(e); }}
-          placeholder="Type a word and press Enter…"
+          placeholder="Type a word ..."
           autoComplete="off"
           autoCapitalize="none"
           autoCorrect="off"
@@ -278,7 +278,7 @@ export function Search({ words, variant, onAdd, onOpen, onAdded }) {
 
           <div className="capture">
             <p className="cap-help">Paste the line from the book you&rsquo;re reading <span className="muted">(optional)</span>.</p>
-            <textarea className="excerpt" value={excerpt} onChange={(e) => setExcerpt(e.target.value)} placeholder="Enter the sentence from your book…" />
+            <textarea className="excerpt" value={excerpt} onChange={(e) => setExcerpt(e.target.value)} placeholder="Enter the sentence from your book …" />
           </div>
 
           <button className={'cta' + (justAdded ? ' done' : '')} onClick={doAdd}>
